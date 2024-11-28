@@ -1,4 +1,4 @@
-#HOSPITAL APP Grupo 3
+# HOSPITAL APP Grupo 3
 
 Java Dashboard Light and Dark mode
 Esta aplicacion tiene dos modos, claro y oscuro
