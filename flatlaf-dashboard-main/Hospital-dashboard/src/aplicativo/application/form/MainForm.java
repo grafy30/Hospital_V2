@@ -19,6 +19,7 @@ import aplicativo.application.Application;
 //import aplicativo.application.form.other.FormEstudiante;
 import aplicativo.application.form.other.FormDashboard;
 import aplicativo.application.form.other.FormDoctor;
+import aplicativo.application.form.other.FormEnfermera;
 //import aplicativo.application.form.other.FormInbox;
 import aplicativo.application.form.other.FormPrincipal;
 //import aplicativo.application.form.other.FormProfesor;
@@ -81,7 +82,7 @@ public class MainForm extends JLayeredPane {
                 if (subIndex == 1) {
                     Application.showForm(new FormDoctor());
                 } else if (subIndex == 2) {
-                    Application.showForm(new FormDashboard());
+                    Application.showForm(new FormEnfermera());
                 } else if (subIndex == 3) {
                     Application.showForm(new FormDashboard());
                 } else {
