@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -38,6 +38,8 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="Hospital.Vista.componentes.Header" name="header1">
+    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -45,7 +47,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="JTablaMostrarEnfermera">
+        <Component class="javax.swing.JTable" name="JTablaMostrarPaciente">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="0" rowCount="4"/>
@@ -56,13 +58,11 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JTablaMostrarEnfermeraMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JTablaMostrarPacienteMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="Hospital.Vista.componentes.Header" name="header1">
-    </Component>
     <Container class="aplicativo.swing.PanelTransparent" name="panelTransparent1">
 
       <Layout>
@@ -74,13 +74,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblCorreo" min="-2" pref="72" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                   <Component id="scrollBarCustom1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Component id="txtCorreoEnfermera" min="-2" pref="295" max="-2" attributes="0"/>
+                                  <Component id="txtCorreoPaciente" min="-2" pref="295" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -91,11 +91,11 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                          <Component id="btnAgregarEnfermera" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAgregarPaciente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnEditarEnfermera" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEditarPaciente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnEliminarEnfermera" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnEliminarPaciente" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -107,11 +107,11 @@
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txtApellidosEnfermera" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtCodEnfermera" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                                  <Component id="txtNomEnfermera" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
+                                  <Component id="txtApellidosPaciente" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtCodPaciente" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                  <Component id="txtNomPaciente" alignment="0" min="-2" pref="292" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtDNIEnfermera" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                              <Component id="txtDNIPaciente" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -121,14 +121,14 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtTelefonoEnfermera" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                              <Component id="txtTelefonoPaciente" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
                               <Component id="jFechaNa" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblDireccion" min="-2" pref="72" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="txtDireccionEnfermera" min="-2" pref="299" max="-2" attributes="0"/>
+                          <Component id="txtDireccionPaciente" min="-2" pref="299" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblFoto" min="-2" pref="72" max="-2" attributes="0"/>
@@ -147,7 +147,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="txtCodigoUsuarioLogin" min="-2" pref="157" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel5" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
+                      <Component id="jLabel5" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="25" max="32767" attributes="0"/>
               </Group>
@@ -162,20 +162,20 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="txtCodEnfermera" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCodPaciente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtNomEnfermera" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNomPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblNombres" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtApellidosEnfermera" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtApellidosPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtDNIEnfermera" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDNIPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblDNI" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -188,16 +188,16 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblTele" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTelefonoEnfermera" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTelefonoPaciente" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblDireccion" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDireccionEnfermera" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDireccionPaciente" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtCorreoEnfermera" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCorreoPaciente" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCorreo" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -222,9 +222,9 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnAgregarEnfermera" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEditarEnfermera" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnEliminarEnfermera" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAgregarPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnEditarPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnEliminarPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="38" max="32767" attributes="0"/>
               </Group>
@@ -237,7 +237,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Semilight" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CRUD ENFERMERO"/>
+            <Property name="text" type="java.lang.String" value="CRUD PACIENTE"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCodigo">
@@ -245,7 +245,7 @@
             <Property name="text" type="java.lang.String" value="Codigo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCodEnfermera">
+        <Component class="javax.swing.JTextField" name="txtCodPaciente">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -255,35 +255,35 @@
             <Property name="text" type="java.lang.String" value="Nombres:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNomEnfermera">
+        <Component class="javax.swing.JTextField" name="txtNomPaciente">
         </Component>
         <Component class="javax.swing.JLabel" name="lblFechaNa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fecha Nacimiento:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnAgregarEnfermera">
+        <Component class="javax.swing.JButton" name="btnAgregarPaciente">
           <Properties>
             <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarEnfermeraActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarPacienteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnEditarEnfermera">
+        <Component class="javax.swing.JButton" name="btnEditarPaciente">
           <Properties>
             <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarEnfermeraActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarPacienteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnEliminarEnfermera">
+        <Component class="javax.swing.JButton" name="btnEliminarPaciente">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarEnfermeraActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarPacienteActionPerformed"/>
           </Events>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="jFechaNa">
@@ -293,14 +293,14 @@
             <Property name="text" type="java.lang.String" value="Telefono:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDNIEnfermera">
+        <Component class="javax.swing.JTextField" name="txtDNIPaciente">
         </Component>
         <Component class="javax.swing.JLabel" name="lblDireccion">
           <Properties>
             <Property name="text" type="java.lang.String" value="Direccion:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDireccionEnfermera">
+        <Component class="javax.swing.JTextField" name="txtDireccionPaciente">
         </Component>
         <Component class="javax.swing.JLabel" name="lblFoto">
           <Properties>
@@ -312,7 +312,7 @@
             <Property name="text" type="java.lang.String" value="Correo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCorreoEnfermera">
+        <Component class="javax.swing.JTextField" name="txtCorreoPaciente">
         </Component>
         <Component class="javax.swing.JLabel" name="lblMostrarFoto">
           <Properties>
@@ -355,14 +355,14 @@
             <Property name="text" type="java.lang.String" value="Apellidos:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtApellidosEnfermera">
+        <Component class="javax.swing.JTextField" name="txtApellidosPaciente">
         </Component>
         <Component class="javax.swing.JLabel" name="lblDNI">
           <Properties>
             <Property name="text" type="java.lang.String" value="DNI:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtTelefonoEnfermera">
+        <Component class="javax.swing.JTextField" name="txtTelefonoPaciente">
         </Component>
         <Component class="aplicativo.swing.scrollbar.ScrollBarCustom" name="scrollBarCustom1">
         </Component>

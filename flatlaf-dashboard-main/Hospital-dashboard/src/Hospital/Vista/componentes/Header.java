@@ -27,7 +27,7 @@ public class Header extends PanelTransparent {
                 lbRole.setText("Doctor");
                 break;
             case 3:
-                lbRole.setText("Enfermero");
+                lbRole.setText("Enfermera");
                 break;
             case 4:
                 lbRole.setText("Paciente");

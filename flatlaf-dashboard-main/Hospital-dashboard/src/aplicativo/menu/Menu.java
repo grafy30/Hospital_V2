@@ -19,7 +19,6 @@ import javax.swing.JScrollPane;
 import aplicativo.menu.mode.ToolBarAccentColor;
 
 /**
- *
  * @author `
  */
 public class Menu extends JPanel {

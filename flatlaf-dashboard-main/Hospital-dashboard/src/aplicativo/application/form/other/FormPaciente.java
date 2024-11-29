@@ -1,40 +1,41 @@
 package aplicativo.application.form.other;
 
-import Hospital.Dao.CEnfermeraDAO;
+import Hospital.Dao.CPacienteDAO;
 import Hospital.Dao.CUsuarioDAO;
-import Hospital.Modelo.ModelEnfermera;
+import Hospital.Modelo.ModelPaciente;
 import Hospital.Modelo.ModelUsuario;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 /**
+ *
  * @author Wilson
  */
-public class FormEnfermera extends javax.swing.JPanel {
-
+public class FormPaciente extends javax.swing.JPanel {
     String filename;
-    byte[] enfermera_image;
-    public FormEnfermera() {
+    byte[] Paciente_image;
+
+    public FormPaciente() {
         initComponents();
-        CEnfermeraDAO enfer=new CEnfermeraDAO();
+        CPacienteDAO enfer=new CPacienteDAO();
         CUsuarioDAO user=new CUsuarioDAO();
-        enfer.MostrarTablaenfermera(JTablaMostrarEnfermera);
+        enfer.MostrarTablaPaciente(JTablaMostrarPaciente);
     }
     public void limpiarcampos(){
-        txtCodEnfermera.setText("");
-        txtNomEnfermera.setText("");
-        txtApellidosEnfermera.setText("");
-        txtDNIEnfermera.setText("");          
+        txtCodPaciente.setText("");
+        txtNomPaciente.setText("");
+        txtApellidosPaciente.setText("");
+        txtDNIPaciente.setText("");          
         jFechaNa.setDate(null);
-        txtTelefonoEnfermera.setText("");
-        txtDireccionEnfermera.setText("");
-        txtCorreoEnfermera.setText("");
+        txtTelefonoPaciente.setText("");
+        txtDireccionPaciente.setText("");
+        txtCorreoPaciente.setText("");
         ImageIcon icono=new ImageIcon("src/aplicativo/icon/jpg/foto_fondo.jpg");
         lblMostrarFoto.setIcon(icono);
         txtCodigoUsuarioLogin.setText("");
@@ -44,41 +45,41 @@ public class FormEnfermera extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        JTablaMostrarEnfermera = new javax.swing.JTable();
         header1 = new Hospital.Vista.componentes.Header();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTablaMostrarPaciente = new javax.swing.JTable();
         panelTransparent1 = new aplicativo.swing.PanelTransparent();
         jLabel5 = new javax.swing.JLabel();
         lblCodigo = new javax.swing.JLabel();
-        txtCodEnfermera = new javax.swing.JTextField();
+        txtCodPaciente = new javax.swing.JTextField();
         lblNombres = new javax.swing.JLabel();
-        txtNomEnfermera = new javax.swing.JTextField();
+        txtNomPaciente = new javax.swing.JTextField();
         lblFechaNa = new javax.swing.JLabel();
-        btnAgregarEnfermera = new javax.swing.JButton();
-        btnEditarEnfermera = new javax.swing.JButton();
-        btnEliminarEnfermera = new javax.swing.JButton();
+        btnAgregarPaciente = new javax.swing.JButton();
+        btnEditarPaciente = new javax.swing.JButton();
+        btnEliminarPaciente = new javax.swing.JButton();
         jFechaNa = new com.toedter.calendar.JDateChooser();
         lblTele = new javax.swing.JLabel();
-        txtDNIEnfermera = new javax.swing.JTextField();
+        txtDNIPaciente = new javax.swing.JTextField();
         lblDireccion = new javax.swing.JLabel();
-        txtDireccionEnfermera = new javax.swing.JTextField();
+        txtDireccionPaciente = new javax.swing.JTextField();
         lblFoto = new javax.swing.JLabel();
         lblCorreo = new javax.swing.JLabel();
-        txtCorreoEnfermera = new javax.swing.JTextField();
+        txtCorreoPaciente = new javax.swing.JTextField();
         lblMostrarFoto = new javax.swing.JLabel();
         btnBuscarFoto = new javax.swing.JButton();
         lblCodigoUsuarioLogin = new javax.swing.JLabel();
         lblApellidos = new javax.swing.JLabel();
-        txtApellidosEnfermera = new javax.swing.JTextField();
+        txtApellidosPaciente = new javax.swing.JTextField();
         lblDNI = new javax.swing.JLabel();
-        txtTelefonoEnfermera = new javax.swing.JTextField();
+        txtTelefonoPaciente = new javax.swing.JTextField();
         scrollBarCustom1 = new aplicativo.swing.scrollbar.ScrollBarCustom();
         lblContraseñaLogin = new javax.swing.JLabel();
         txtCodigoUsuarioLogin = new javax.swing.JTextField();
         txtContraseñaLogin = new javax.swing.JTextField();
         txtRuta = new javax.swing.JTextField();
 
-        JTablaMostrarEnfermera.setModel(new javax.swing.table.DefaultTableModel(
+        JTablaMostrarPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -89,43 +90,43 @@ public class FormEnfermera extends javax.swing.JPanel {
 
             }
         ));
-        JTablaMostrarEnfermera.setOpaque(false);
-        JTablaMostrarEnfermera.addMouseListener(new java.awt.event.MouseAdapter() {
+        JTablaMostrarPaciente.setOpaque(false);
+        JTablaMostrarPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JTablaMostrarEnfermeraMouseClicked(evt);
+                JTablaMostrarPacienteMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(JTablaMostrarEnfermera);
+        jScrollPane1.setViewportView(JTablaMostrarPaciente);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
-        jLabel5.setText("CRUD ENFERMERO");
+        jLabel5.setText("CRUD PACIENTE");
 
         lblCodigo.setText("Codigo:");
 
-        txtCodEnfermera.setEnabled(false);
+        txtCodPaciente.setEnabled(false);
 
         lblNombres.setText("Nombres:");
 
         lblFechaNa.setText("Fecha Nacimiento:");
 
-        btnAgregarEnfermera.setText("Añadir");
-        btnAgregarEnfermera.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarPaciente.setText("Añadir");
+        btnAgregarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarEnfermeraActionPerformed(evt);
+                btnAgregarPacienteActionPerformed(evt);
             }
         });
 
-        btnEditarEnfermera.setText("Editar");
-        btnEditarEnfermera.addActionListener(new java.awt.event.ActionListener() {
+        btnEditarPaciente.setText("Editar");
+        btnEditarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarEnfermeraActionPerformed(evt);
+                btnEditarPacienteActionPerformed(evt);
             }
         });
 
-        btnEliminarEnfermera.setText("Eliminar");
-        btnEliminarEnfermera.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarPaciente.setText("Eliminar");
+        btnEliminarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarEnfermeraActionPerformed(evt);
+                btnEliminarPacienteActionPerformed(evt);
             }
         });
 
@@ -179,18 +180,18 @@ public class FormEnfermera extends javax.swing.JPanel {
                                 .addComponent(scrollBarCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelTransparent1Layout.createSequentialGroup()
                                 .addGap(44, 44, 44)
-                                .addComponent(txtCorreoEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtCorreoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
                         .addComponent(lblContraseñaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtContraseñaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
                         .addGap(107, 107, 107)
-                        .addComponent(btnAgregarEnfermera)
+                        .addComponent(btnAgregarPaciente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditarEnfermera)
+                        .addComponent(btnEditarPaciente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminarEnfermera))
+                        .addComponent(btnEliminarPaciente))
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
                         .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,22 +201,22 @@ public class FormEnfermera extends javax.swing.JPanel {
                         .addGap(44, 44, 44)
                         .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtApellidosEnfermera, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtCodEnfermera, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtNomEnfermera, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtDNIEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtApellidosPaciente, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtCodPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNomPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDNIPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
                         .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblFechaNa)
                             .addComponent(lblTele, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTelefonoEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTelefonoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jFechaNa, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
                         .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44)
-                        .addComponent(txtDireccionEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtDireccionPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
                         .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
@@ -229,7 +230,7 @@ public class FormEnfermera extends javax.swing.JPanel {
                         .addComponent(lblCodigoUsuarioLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtCodigoUsuarioLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         panelTransparent1Layout.setVerticalGroup(
@@ -241,18 +242,18 @@ public class FormEnfermera extends javax.swing.JPanel {
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCodigo)
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
-                        .addComponent(txtCodEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCodPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNomEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNomPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNombres))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtApellidosEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtApellidosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblApellidos))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtDNIEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDNIPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDNI))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,14 +262,14 @@ public class FormEnfermera extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTele)
-                    .addComponent(txtTelefonoEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefonoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDireccion)
-                    .addComponent(txtDireccionEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCorreoEnfermera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCorreo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollBarCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,9 +290,9 @@ public class FormEnfermera extends javax.swing.JPanel {
                     .addComponent(txtContraseñaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregarEnfermera)
-                    .addComponent(btnEditarEnfermera)
-                    .addComponent(btnEliminarEnfermera))
+                    .addComponent(btnAgregarPaciente)
+                    .addComponent(btnEditarPaciente)
+                    .addComponent(btnEliminarPaciente))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -316,46 +317,46 @@ public class FormEnfermera extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTablaMostrarEnfermeraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTablaMostrarEnfermeraMouseClicked
-        CEnfermeraDAO objenfer=new CEnfermeraDAO();
-        objenfer.SeleccionarEnfermera(JTablaMostrarEnfermera, txtCodEnfermera, txtNomEnfermera, txtApellidosEnfermera, txtDNIEnfermera, jFechaNa,
-            txtTelefonoEnfermera,txtDireccionEnfermera, txtCorreoEnfermera, lblMostrarFoto, txtCodigoUsuarioLogin,txtContraseñaLogin);
-    }//GEN-LAST:event_JTablaMostrarEnfermeraMouseClicked
+    private void JTablaMostrarPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTablaMostrarPacienteMouseClicked
+        CPacienteDAO objenfer=new CPacienteDAO();
+        objenfer.SeleccionarPaciente(JTablaMostrarPaciente, txtCodPaciente, txtNomPaciente, txtApellidosPaciente, txtDNIPaciente, jFechaNa,
+            txtTelefonoPaciente,txtDireccionPaciente, txtCorreoPaciente, lblMostrarFoto, txtCodigoUsuarioLogin,txtContraseñaLogin);
+    }//GEN-LAST:event_JTablaMostrarPacienteMouseClicked
 
-    private void btnAgregarEnfermeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEnfermeraActionPerformed
-        if (txtNomEnfermera.getText().isEmpty() || txtApellidosEnfermera.getText().isEmpty() || jFechaNa.getDateFormatString().isEmpty() || txtDNIEnfermera.getText().isEmpty() ||
-            txtDireccionEnfermera.getText().isEmpty() || txtTelefonoEnfermera.getText().isEmpty() || txtCorreoEnfermera.getText().isEmpty()) {
+    private void btnAgregarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPacienteActionPerformed
+        if (txtNomPaciente.getText().isEmpty() || txtApellidosPaciente.getText().isEmpty() || jFechaNa.getDateFormatString().isEmpty() || txtDNIPaciente.getText().isEmpty() ||
+            txtDireccionPaciente.getText().isEmpty() || txtTelefonoPaciente.getText().isEmpty() || txtCorreoPaciente.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
         }else{
-            ModelEnfermera enfermera=new ModelEnfermera();
-            enfermera.setNombre(txtNomEnfermera.getText());
-            enfermera.setApellido(txtApellidosEnfermera.getText());
-            String dni = txtDNIEnfermera.getText().trim();
+            ModelPaciente Paciente=new ModelPaciente();
+            Paciente.setNombre(txtNomPaciente.getText());
+            Paciente.setApellido(txtApellidosPaciente.getText());
+            String dni = txtDNIPaciente.getText().trim();
             if (dni.length() == 8 && dni.matches("\\d+")) {
-                enfermera.setDni(dni);
+                Paciente.setDni(dni);
             } else {
                 JOptionPane.showMessageDialog(null, "El DNI debe contener exactamente 8 dígitos numéricos.");
                 return;
             }
-            enfermera.setFecha_Nacimiento(jFechaNa.getDate());
-            enfermera.setTelefono(txtTelefonoEnfermera.getText());
-            enfermera.setDireccion(txtDireccionEnfermera.getText());
-            String email = txtCorreoEnfermera.getText().trim();
+            Paciente.setFecha_Nacimiento(jFechaNa.getDate());
+            Paciente.setTelefono(txtTelefonoPaciente.getText());
+            Paciente.setDireccion(txtDireccionPaciente.getText());
+            String email = txtCorreoPaciente.getText().trim();
             if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
                 JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.");
                 return;
             }
-            enfermera.setEmail(email);
-            enfermera.setEmail(txtCorreoEnfermera.getText());            
+            Paciente.setEmail(email);
+            Paciente.setEmail(txtCorreoPaciente.getText());
 
             try {
                 File ruta=new File(txtRuta.getText());
                 byte[] icono=new byte[(int)ruta.length()];
                 InputStream input= new FileInputStream(ruta);
                 input.read(icono);
-                enfermera.setFoto(icono);
+                Paciente.setFoto(icono);
             } catch (Exception e) {
-                enfermera.setFoto(null);
+                Paciente.setFoto(null);
             }
 
             // Crear objeto Usuario
@@ -363,32 +364,32 @@ public class FormEnfermera extends javax.swing.JPanel {
             usuario.setCodigo_Usuario(txtCodigoUsuarioLogin.getText());
             usuario.setContraseña(new String(txtContraseñaLogin.getText()));
             usuario.setRolID(2);
-            usuario.setFoto(enfermera.getFoto()); // Usar la misma foto que el enfermera
+            usuario.setFoto(Paciente.getFoto()); // Usar la misma foto que el Paciente
 
             // Llamar al método de inserción
-            CEnfermeraDAO objenfer = new CEnfermeraDAO();
-            boolean resultado = objenfer.InsertarEnfermeraYUsuario(enfermera, usuario);
+            CPacienteDAO objenfer = new CPacienteDAO();
+            boolean resultado = objenfer.InsertarPacienteYUsuario(Paciente, usuario);
 
             if (resultado) {
-                JOptionPane.showMessageDialog(null, "enfermera y Usuario agregados exitosamente.");
-                objenfer.MostrarTablaenfermera(JTablaMostrarEnfermera);
+                JOptionPane.showMessageDialog(null, "Paciente y Usuario agregados exitosamente.");
+                objenfer.MostrarTablaPaciente(JTablaMostrarPaciente);
                 limpiarcampos();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al agregar enfermera y Usuario.");
+                JOptionPane.showMessageDialog(null, "Error al agregar Paciente y Usuario.");
             }
         }
-    }//GEN-LAST:event_btnAgregarEnfermeraActionPerformed
+    }//GEN-LAST:event_btnAgregarPacienteActionPerformed
 
-    private void btnEditarEnfermeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEnfermeraActionPerformed
-        CEnfermeraDAO objenfer= new CEnfermeraDAO();
-        objenfer.ModificarEnfermera(txtCodEnfermera, txtNomEnfermera, txtApellidosEnfermera, txtDNIEnfermera, jFechaNa, txtTelefonoEnfermera, txtDireccionEnfermera,
-            txtCorreoEnfermera,lblMostrarFoto,txtRuta,txtCodigoUsuarioLogin,txtContraseñaLogin);
-        objenfer.MostrarTablaenfermera(JTablaMostrarEnfermera);
+    private void btnEditarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPacienteActionPerformed
+        CPacienteDAO objenfer= new CPacienteDAO();
+        objenfer.ModificarPaciente(txtCodPaciente, txtNomPaciente, txtApellidosPaciente, txtDNIPaciente, jFechaNa, txtTelefonoPaciente, txtDireccionPaciente,
+            txtCorreoPaciente,lblMostrarFoto,txtRuta,txtCodigoUsuarioLogin,txtContraseñaLogin);
+        objenfer.MostrarTablaPaciente(JTablaMostrarPaciente);
         limpiarcampos();
-    }//GEN-LAST:event_btnEditarEnfermeraActionPerformed
+    }//GEN-LAST:event_btnEditarPacienteActionPerformed
 
-    private void btnEliminarEnfermeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEnfermeraActionPerformed
-        int filaSeleccionada = JTablaMostrarEnfermera.getSelectedRow();
+    private void btnEliminarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPacienteActionPerformed
+        int filaSeleccionada = JTablaMostrarPaciente.getSelectedRow();
 
         if (filaSeleccionada == -1) {
             // Si no hay fila seleccionada, mostrar mensaje de advertencia
@@ -409,9 +410,9 @@ public class FormEnfermera extends javax.swing.JPanel {
             );
 
             if (confirmacion == JOptionPane.YES_OPTION) {
-                CEnfermeraDAO objenfer = new CEnfermeraDAO();
-                objenfer.EliminarEnfermera(txtCodigoUsuarioLogin,txtCodEnfermera);
-                objenfer.MostrarTablaenfermera(JTablaMostrarEnfermera);
+                CPacienteDAO objenfer = new CPacienteDAO();
+                objenfer.EliminarPaciente(txtCodigoUsuarioLogin,txtCodPaciente);
+                objenfer.MostrarTablaPaciente(JTablaMostrarPaciente);
                 System.out.println("Registro eliminado.");
             } else {
                 System.out.println("Operación cancelada.");
@@ -419,7 +420,7 @@ public class FormEnfermera extends javax.swing.JPanel {
             }
         }
         limpiarcampos();
-    }//GEN-LAST:event_btnEliminarEnfermeraActionPerformed
+    }//GEN-LAST:event_btnEliminarPacienteActionPerformed
 
     private void btnBuscarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFotoActionPerformed
         JFileChooser chooser = new JFileChooser();
@@ -442,7 +443,7 @@ public class FormEnfermera extends javax.swing.JPanel {
             for (int readNum; (readNum = fis.read(buffer)) != -1;) {
                 bos.write(buffer, 0, readNum);
             }
-            enfermera_image = bos.toByteArray();
+            Paciente_image = bos.toByteArray();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error al cargar la imagen: " + ex.getMessage());
         }
@@ -450,11 +451,11 @@ public class FormEnfermera extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable JTablaMostrarEnfermera;
-    private javax.swing.JButton btnAgregarEnfermera;
+    private javax.swing.JTable JTablaMostrarPaciente;
+    private javax.swing.JButton btnAgregarPaciente;
     private javax.swing.JButton btnBuscarFoto;
-    private javax.swing.JButton btnEditarEnfermera;
-    private javax.swing.JButton btnEliminarEnfermera;
+    private javax.swing.JButton btnEditarPaciente;
+    private javax.swing.JButton btnEliminarPaciente;
     private Hospital.Vista.componentes.Header header1;
     private com.toedter.calendar.JDateChooser jFechaNa;
     private javax.swing.JLabel jLabel5;
@@ -473,15 +474,15 @@ public class FormEnfermera extends javax.swing.JPanel {
     private javax.swing.JLabel lblTele;
     private aplicativo.swing.PanelTransparent panelTransparent1;
     private aplicativo.swing.scrollbar.ScrollBarCustom scrollBarCustom1;
-    private javax.swing.JTextField txtApellidosEnfermera;
-    private javax.swing.JTextField txtCodEnfermera;
+    private javax.swing.JTextField txtApellidosPaciente;
+    private javax.swing.JTextField txtCodPaciente;
     private javax.swing.JTextField txtCodigoUsuarioLogin;
     private javax.swing.JTextField txtContraseñaLogin;
-    private javax.swing.JTextField txtCorreoEnfermera;
-    private javax.swing.JTextField txtDNIEnfermera;
-    private javax.swing.JTextField txtDireccionEnfermera;
-    private javax.swing.JTextField txtNomEnfermera;
+    private javax.swing.JTextField txtCorreoPaciente;
+    private javax.swing.JTextField txtDNIPaciente;
+    private javax.swing.JTextField txtDireccionPaciente;
+    private javax.swing.JTextField txtNomPaciente;
     private javax.swing.JTextField txtRuta;
-    private javax.swing.JTextField txtTelefonoEnfermera;
+    private javax.swing.JTextField txtTelefonoPaciente;
     // End of variables declaration//GEN-END:variables
 }
