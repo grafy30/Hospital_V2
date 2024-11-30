@@ -16,8 +16,9 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import aplicativo.application.Application;
+import aplicativo.application.form.other.FormCitasMedicas;
 //import aplicativo.application.form.other.FormEstudiante;
-import aplicativo.application.form.other.FormDashboard;
+//import aplicativo.application.form.other.FormDashboard;
 import aplicativo.application.form.other.FormDoctor;
 import aplicativo.application.form.other.FormEnfermera;
 import aplicativo.application.form.other.FormPaciente;
@@ -87,13 +88,25 @@ public class MainForm extends JLayeredPane {
                 } else if (subIndex == 3) {
                     Application.showForm(new FormPaciente());
                 } else {
-                    action.cancel();
-                }
-            } else if (index == 9) {
-                Application.logout();
-            } else {
-                action.cancel();
+                        action.cancel();
+                    } 
+            }else if (index == 4) {
+                    if (subIndex == 1) {
+                        Application.showForm(new FormCitasMedicas());
+                    } else if (subIndex == 2) {
+                        Application.showForm(new FormEnfermera());
+                    } else if (subIndex == 3) {
+                        Application.showForm(new FormPaciente());
+                    } else {
+                        action.cancel();
+                    } 
             }
+            else if (index == 9) {
+                    Application.logout();
+                    } else {
+                        action.cancel();
+                    }
+                
         });
     }
 

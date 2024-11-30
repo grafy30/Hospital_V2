@@ -1,5 +1,6 @@
 package aplicativo.menu;
 
+import Hospital.Conexion.UserSession;
 import aplicativo.menu.mode.LightDarkMode;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.ui.FlatUIUtils;
@@ -30,8 +31,8 @@ public class Menu extends JPanel {
         {"Crud Tablas", "Doctor", "Enfermero", "Paciente"},
         {"Chat"},
         {"Calendar"},
-        {"~COMPONENT~"},
-        {"Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert"},
+        {"~DOCTOR~"},
+        {"Tareas", "Citas Médicas", "Pacientes", "Historiales Clínicos"},
         {"Forms", "Basic Elements", "Advanced Elements", "Editors", "Wizard"},
         {"~OTHER~"},
         {"Charts", "Apex", "Flot", "Peity", "Sparkline"},
@@ -39,7 +40,7 @@ public class Menu extends JPanel {
         {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},
         {"Logout"}
     };
-
+       
     public boolean isMenuFull() {
         return menuFull;
     }
@@ -74,7 +75,7 @@ public class Menu extends JPanel {
     protected final int headerFullHgap = 5;
 
     public Menu() {
-        init();
+        init();        
     }
 
     private void init() {
