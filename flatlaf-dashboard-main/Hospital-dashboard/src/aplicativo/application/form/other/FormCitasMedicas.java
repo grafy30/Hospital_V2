@@ -1,9 +1,13 @@
 package aplicativo.application.form.other;
 
+import Hospital.Dao.CCitaDAO;
+import Hospital.Dao.CDoctorDAO;
 import Hospital.Dao.CPacienteDAO;
 import Hospital.Modelo.ModelCita;
+import Hospital.Modelo.ModelDoctor;
 import Hospital.Modelo.ModelPaciente;
-import java.io.File;
+import javax.swing.ImageIcon;
+//import java.io.File;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,12 +15,27 @@ import javax.swing.JOptionPane;
  */
 public class FormCitasMedicas extends javax.swing.JPanel {
 
+    CDoctorDAO doctor=new CDoctorDAO();
     public FormCitasMedicas() {
         initComponents();
         CPacienteDAO paci=new CPacienteDAO();        
         paci.MostrarTablaPacienteCITA(JTablaMostrarPacienteCita);
+        CCitaDAO cita=new CCitaDAO();
+        cita.MostrarTablaCita(JTablaMostrarCitas);
+        CDoctorDAO docComb=new CDoctorDAO();
+        docComb.MostrarDoctoresCombo(jComboBoxDoctor);
     }
 
+    public void limpiarcampos(){
+        txtCodCita.setText("");
+        txtCodPaciente.setText("");
+        txtNomPaciente.setText("");
+        txtApellidosPaciente.setText("");      
+        jFechaCita.setDate(null);
+        txtMotivoPaciente.setText("");
+        ImageIcon icono=new ImageIcon("src/aplicativo/icon/jpg/foto_fondo.jpg");
+        lblMostrarFoto.setIcon(icono);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,7 +62,9 @@ public class FormCitasMedicas extends javax.swing.JPanel {
         txtCodPaciente = new javax.swing.JTextField();
         lblMostrarFoto = new javax.swing.JLabel();
         lblFechaNa = new javax.swing.JLabel();
-        jFechaNa = new com.toedter.calendar.JDateChooser();
+        jFechaCita = new com.toedter.calendar.JDateChooser();
+        lblDoctor = new javax.swing.JLabel();
+        jComboBoxDoctor = new javax.swing.JComboBox<>();
         txtDNIDoctor1 = new javax.swing.JTextField();
         button1 = new aplicativo.swing.Button();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -125,6 +146,15 @@ public class FormCitasMedicas extends javax.swing.JPanel {
 
         lblFechaNa.setText("Fecha Cita:");
 
+        lblDoctor.setText("Doctor:");
+
+        jComboBoxDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+        jComboBoxDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDoctorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelTransparent1Layout = new javax.swing.GroupLayout(panelTransparent1);
         panelTransparent1.setLayout(panelTransparent1Layout);
         panelTransparent1Layout.setHorizontalGroup(
@@ -132,10 +162,13 @@ public class FormCitasMedicas extends javax.swing.JPanel {
             .addGroup(panelTransparent1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addComponent(lblFechaNa, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(scrollBarCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addComponent(btnCita)
@@ -143,33 +176,33 @@ public class FormCitasMedicas extends javax.swing.JPanel {
                         .addComponent(btnEditarDoctor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminarDoctor))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelTransparent1Layout.createSequentialGroup()
                         .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFechaNa))
+                            .addComponent(lblDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(44, 44, 44)
-                        .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFechaNa, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtApellidosPaciente, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtNomPaciente)
-                                .addComponent(txtMotivoPaciente)
-                                .addGroup(panelTransparent1Layout.createSequentialGroup()
-                                    .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTransparent1Layout.createSequentialGroup()
-                                            .addComponent(txtCodPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(39, 39, 39))
-                                        .addGroup(panelTransparent1Layout.createSequentialGroup()
-                                            .addComponent(txtCodCita, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addComponent(lblMostrarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(19, 19, 19))))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtApellidosPaciente, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomPaciente)
+                            .addGroup(panelTransparent1Layout.createSequentialGroup()
+                                .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTransparent1Layout.createSequentialGroup()
+                                        .addComponent(txtCodPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(39, 39, 39))
+                                    .addGroup(panelTransparent1Layout.createSequentialGroup()
+                                        .addComponent(txtCodCita, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(lblMostrarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19))
+                            .addComponent(jComboBoxDoctor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtMotivoPaciente, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelTransparent1Layout.createSequentialGroup()
+                                .addComponent(jFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelTransparent1Layout.setVerticalGroup(
             panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,16 +231,19 @@ public class FormCitasMedicas extends javax.swing.JPanel {
                     .addComponent(txtApellidosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblApellidos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDoctor)
+                    .addComponent(jComboBoxDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFechaNa)
-                    .addComponent(jFechaNa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollBarCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFechaNa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMotivoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDNI))
-                .addGap(18, 18, 18)
-                .addComponent(scrollBarCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(30, 30, 30)
                 .addGroup(panelTransparent1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCita)
                     .addComponent(btnEditarDoctor)
@@ -251,13 +287,13 @@ public class FormCitasMedicas extends javax.swing.JPanel {
                 .addComponent(panelTransparent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtDNIDoctor1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,80 +318,58 @@ public class FormCitasMedicas extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(52, 52, 52)
                                 .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void JTablaMostrarPacienteCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTablaMostrarPacienteCitaMouseClicked
-//        CPacienteDAO objPacien=new CPacienteDAO();
-//        objPacien.SeleccionarPacienteCITA(JTablaMostrarPacienteCita, txtCodPaciente, txtNomPaciente, txtApellidosPaciente,
-//                 lblMostrarFoto);
+        CPacienteDAO objPacien=new CPacienteDAO();
+        objPacien.SeleccionarPacienteCITA(JTablaMostrarPacienteCita, txtCodPaciente, txtNomPaciente, txtApellidosPaciente,
+                 lblMostrarFoto);
     }//GEN-LAST:event_JTablaMostrarPacienteCitaMouseClicked
 
     private void btnCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCitaActionPerformed
-//        if (txtNomPaciente.getText().isEmpty() || txtApellidosPaciente.getText().isEmpty() || jFechaNa.getDateFormatString().isEmpty() || 
-//            txtMotivoPaciente.getText().isEmpty() ) {
-//            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
-//        }else{
-//            ModelPaciente paciente=new ModelPaciente();
-//            paciente.setNombre(txtNomPaciente.getText());
-//            paciente.setApellido(txtApellidosPaciente.getText());
-////            String dni = txtMotivoPaciente.getText().trim();
-////            if (dni.length() == 8 && dni.matches("\\d+")) {
-////                doctor.setDni(dni);
-////            } else {
-////                JOptionPane.showMessageDialog(null, "El DNI debe contener exactamente 8 dígitos numéricos.");
-////                return;
-////            }
-//            paciente.setFecha_Nacimiento(jFechaNa.getDate());
-//            ModelCita cita=new ModelCita();
-//            cita.setMotivo(txtMotivoPaciente.getText());
-////            doctor.setTelefono(txtTelefonoDoctor.getText());
-////            doctor.setDireccion(txtDireccionDoctor.getText());
-////            String email = txtCorreoDoctor.getText().trim();
-////            if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
-////                JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.");
-////                return;
-////            }
-////            doctor.setEmail(email);
-////            doctor.setEmail(txtCorreoDoctor.getText());
-////            doctor.setEspecialidad(txtEspecialidadDoctor.getText());
-//
-//            try {
-//                File ruta=new File(txtRuta.getText());
-//                byte[] icono=new byte[(int)ruta.length()];
-//                InputStream input= new FileInputStream(ruta);
-//                input.read(icono);
-//                doctor.setFoto(icono);
-//            } catch (Exception e) {
-//                doctor.setFoto(null);
-//            }
-//
-//            // Crear objeto Usuario
-//            ModelUsuario usuario = new ModelUsuario();
-//            usuario.setCodigo_Usuario(txtCodigoUsuarioLogin.getText());
-//            usuario.setContraseña(new String(txtContraseñaLogin.getText()));
-//            usuario.setRolID(2);
-//            usuario.setFoto(doctor.getFoto()); // Usar la misma foto que el doctor
-//
-//            // Llamar al método de inserción
-//            CDoctorDAO objdoc = new CDoctorDAO();
-//            boolean resultado = objdoc.InsertardoctorYUsuario(doctor, usuario);
-//
-//            if (resultado) {
-//                JOptionPane.showMessageDialog(null, "doctor y Usuario agregados exitosamente.");
-//                objdoc.MostrarTablaDoctor(JTablaMostrarPacienteCita);
-//                limpiarcampos();
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Error al agregar doctor y Usuario.");
-//            }
-//        }
+        if (txtNomPaciente.getText().isEmpty() || txtApellidosPaciente.getText().isEmpty() || jFechaCita.getDateFormatString().isEmpty() || 
+            txtMotivoPaciente.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
+        }else{
+            ModelPaciente paciente=new ModelPaciente();
+            paciente.setNombre(txtNomPaciente.getText());
+            paciente.setApellido(txtApellidosPaciente.getText());
+            String doctorSeleccionado = jComboBoxDoctor.getSelectedItem().toString();
+            CDoctorDAO doctorDAO = new CDoctorDAO();
+            int idDoctor = doctorDAO.obtenerIdDoctorPorNombreCompleto(doctorSeleccionado);
+
+            if (idDoctor != -1) {
+                System.out.println("ID del doctor seleccionado: " + idDoctor);
+            } else {
+                System.out.println("No se encontró el ID del doctor.");
+            }
+
+            
+            ModelCita cita=new ModelCita();
+            cita.setFecha_cita(jFechaCita.getDate());
+            cita.setMotivo(txtMotivoPaciente.getText());
+            cita.setFoto(paciente.getFoto());
+
+            // Llamar al método de inserción
+            CCitaDAO objCita = new CCitaDAO();
+            boolean resultado = objCita.InsertarCita(paciente, cita);
+
+            if (resultado) {
+                JOptionPane.showMessageDialog(null, "Cita agregada exitosamente.");
+                objCita.MostrarTablaCita(JTablaMostrarCitas);
+                limpiarcampos();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al agregar Cita.");
+            }
+        }
     }//GEN-LAST:event_btnCitaActionPerformed
 
     private void btnEditarDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarDoctorActionPerformed
@@ -404,6 +418,15 @@ public class FormCitasMedicas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTablaMostrarCitasMouseClicked
 
+    private void jComboBoxDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDoctorActionPerformed
+        
+//        doctor.MostrarLibrosPorCategoria(JTablaMostrarLibros, jComboFacultad.getSelectedItem().toString());
+//        System.out.println(jComboFacultad.getSelectedItem().toString());
+//        if(jComboFacultad.getSelectedItem().toString().equals("Seleccionar")){
+//            Libro.MostrarLibros(JTablaMostrarLibros);
+//        }
+    }//GEN-LAST:event_jComboBoxDoctorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JTablaMostrarCitas;
@@ -413,7 +436,8 @@ public class FormCitasMedicas extends javax.swing.JPanel {
     private javax.swing.JButton btnEliminarDoctor;
     private aplicativo.swing.Button button1;
     private Hospital.Vista.componentes.Header header1;
-    private com.toedter.calendar.JDateChooser jFechaNa;
+    private javax.swing.JComboBox<String> jComboBoxDoctor;
+    private com.toedter.calendar.JDateChooser jFechaCita;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -424,6 +448,7 @@ public class FormCitasMedicas extends javax.swing.JPanel {
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblCodigo1;
     private javax.swing.JLabel lblDNI;
+    private javax.swing.JLabel lblDoctor;
     private javax.swing.JLabel lblFechaNa;
     private javax.swing.JLabel lblMostrarFoto;
     private javax.swing.JLabel lblNombres;

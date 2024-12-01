@@ -252,7 +252,7 @@ public class CPacienteDAO {
             cs=objc.EstablecerConexion().prepareCall(query2);
             cs.setInt(1,Integer.parseInt(txtCodPacie.getText()));
             cs.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Paciente ELIMINADO");
+            JOptionPane.showMessageDialog(null, "PACIENTE ELIMINADO");
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al intentar eliminar"+e.toString());
@@ -267,18 +267,6 @@ public class CPacienteDAO {
                 txtCodPaciente.setText(tabla.getValueAt(fila, 0).toString());
                 txtNomPaciente.setText(tabla.getValueAt(fila, 1).toString());
                 txtApellidosPaciente.setText(tabla.getValueAt(fila, 2).toString());
-//                txtDNIPacie.setText(tabla.getValueAt(fila, 3).toString());
-//                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//                Object fechaEntregaObj = tabla.getValueAt(fila, 3);
-//                if (fechaEntregaObj != null) {
-//                    java.util.Date fechanacstr = dateFormat.parse(fechaEntregaObj.toString());
-//                    jFechaNa.setDate(fechanacstr);
-//                } else {
-//                    jFechaNa.setDate(null);
-//                }                
-//                txtMotivoPaciente.setText(tabla.getValueAt(fila, 4).toString());                                               
-
-                // Cargar la foto del Pacientev si está disponible
                 byte[] fotoBytes = (byte[]) tabla.getValueAt(fila, 3);
                 if (fotoBytes != null) {
                     ImageIcon imageIcon = new ImageIcon(fotoBytes);
@@ -300,36 +288,34 @@ public class CPacienteDAO {
         DefaultTableModel modelo = new DefaultTableModel();
 
         // Definir las columnas de la tabla
-        modelo.addColumn("ID");
+        modelo.addColumn("CodPaciente");
         modelo.addColumn("Nombres");
         modelo.addColumn("Apellidos");                           
         modelo.addColumn("Foto");                   
         tabla.setModel(modelo);
 
-        // Consulta SQL corregida
-        String sql = "SELECT Id_Paciente, Nombre, Apellido, Foto"
-                   + "FROM Paciente";
-//                   + "LEFT JOIN Citas c ON p.Id_Paciente = c.Id_Cita";
+        String sql = "SELECT u.Codigo_Usuario, p.Nombre, p.Apellido, p.Foto " 
+                   + "FROM Paciente p " 
+                   + "LEFT JOIN Usuario u ON p.Id_Paciente = u.Id_Paciente";
 
-        Object[] datos = new Object[4]; // Cambiado a tamaño 14
+        Object[] datos = new Object[4]; 
 
         try (Connection conn = objCon.EstablecerConexion();
              Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
             while (rs.next()) {
-                datos[0] = rs.getString("ID");
-                datos[1] = rs.getString("Nombre");
-                datos[2] = rs.getString("Apellido");
-//                datos[3] = rs.getString("Fecha_Cita");                
-//                datos[4] = rs.getString("Motivo");                
-                datos[3] = rs.getBytes("Foto");                
+                datos[0] = rs.getString("Codigo_Usuario"); 
+                datos[1] = rs.getString("Nombre");        
+                datos[2] = rs.getString("Apellido");      
+                datos[3] = rs.getBytes("Foto");           
+
                 modelo.addRow(datos);
             }
             tabla.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se conectó correctamente, error: " + e.toString());
         } 
-    }
+}
 
 }

@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 
 
 /**
@@ -263,4 +264,42 @@ public class CDoctorDAO {
         }  
     }
 
+    public void MostrarDoctoresCombo(JComboBox<String> Comb) {
+        CConexion objCon = new CConexion();
+        String sql = "SELECT CONCAT(Nombre, ' ', Apellido) AS NombreDoctor FROM Doctor";  
+        Statement st;
+        try {
+            st = objCon.EstablecerConexion().createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                String nombre = rs.getString("NombreDoctor");
+                Comb.addItem(nombre);
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se conecto correctamente, error:" + e.toString());
+        } 
+    }
+
+    public int obtenerIdDoctorPorNombreCompleto(String nombreCompleto) {
+        int idDoctor = -1; // Valor predeterminado si no se encuentra
+        String sql = "SELECT Id_Doctor FROM Doctor WHERE CONCAT(Nombre, ' ', Apellido) = ?";
+
+        // Crear una instancia de la conexión
+        CConexion objCon = new CConexion();
+
+        try (Connection conn = objCon.EstablecerConexion();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, nombreCompleto);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    idDoctor = rs.getInt("Id_Doctor");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener el ID del doctor: " + e.getMessage());
+        }
+        return idDoctor;
+    }
 }

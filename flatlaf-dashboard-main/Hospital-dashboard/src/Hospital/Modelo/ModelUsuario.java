@@ -108,7 +108,8 @@ public class ModelUsuario {
         
     //Constructor de la clase 
 
-    public ModelUsuario(int UsuarioID, String Codigo_Usuario, String Contraseña, int RolID, int Id_Admin, int Id_Doctor, int Id_Enfermera, int Id_Paciente, byte[] Foto, Date FechaRegistro, String NombreCompleto) {
+    public ModelUsuario(int UsuarioID, String Codigo_Usuario, String Contraseña, int RolID, int Id_Admin, int Id_Doctor, 
+            int Id_Enfermera, int Id_Paciente, byte[] Foto, Date FechaRegistro, String NombreCompleto) {
         this.UsuarioID = UsuarioID;
         this.Codigo_Usuario = Codigo_Usuario;
         this.Contraseña = Contraseña;

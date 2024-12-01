@@ -31,7 +31,7 @@ public class Menu extends JPanel {
         {"Crud Tablas", "Doctor", "Enfermero", "Paciente"},
         {"Chat"},
         {"Calendar"},
-        {"~DOCTOR~"},
+        {"~ENFERMERO~"},
         {"Tareas", "Citas Médicas", "Pacientes", "Historiales Clínicos"},
         {"Forms", "Basic Elements", "Advanced Elements", "Editors", "Wizard"},
         {"~OTHER~"},

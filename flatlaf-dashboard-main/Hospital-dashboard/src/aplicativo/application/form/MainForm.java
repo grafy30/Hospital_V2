@@ -76,8 +76,7 @@ public class MainForm extends JLayeredPane {
     }
 
     private void initMenuEvent() {
-        menu.addMenuEvent((int index, int subIndex, MenuAction action) -> {
-            // Application.mainForm.showForm(new DefaultForm("Form : " + index + " " + subIndex));
+        menu.addMenuEvent((int index, int subIndex, MenuAction action) -> {            
             if (index == 0) {
                 Application.showForm(new FormPrincipal());
             } else if (index == 1) {
@@ -94,7 +93,7 @@ public class MainForm extends JLayeredPane {
                     if (subIndex == 1) {
                         Application.showForm(new FormCitasMedicas());
                     } else if (subIndex == 2) {
-                        Application.showForm(new FormEnfermera());
+                        Application.showForm(new FormPaciente());
                     } else if (subIndex == 3) {
                         Application.showForm(new FormPaciente());
                     } else {
