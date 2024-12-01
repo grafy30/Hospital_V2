@@ -302,4 +302,24 @@ public class CDoctorDAO {
         }
         return idDoctor;
     }
+
+    ModelDoctor obtenerDoctorPorId(int idDoctor) {
+        ModelDoctor doctor = null;
+        String sql = "SELECT nombre, apellido FROM Doctor WHERE id_doctor = ?";
+        CConexion objCon = new CConexion();
+        try (Connection conn = objCon.EstablecerConexion();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, idDoctor);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                doctor = new ModelDoctor();
+                doctor.setId_doctor(idDoctor);
+                doctor.setNombre(rs.getString("nombre"));
+                doctor.setApellido(rs.getString("apellido"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al obtener el doctor: " + e.getMessage());
+        }
+        return doctor;
+    }
 }

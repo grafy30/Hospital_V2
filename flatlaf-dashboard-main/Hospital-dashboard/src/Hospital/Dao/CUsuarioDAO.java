@@ -2,6 +2,7 @@ package Hospital.Dao;
 
 import Hospital.Conexion.CConexion;
 import Hospital.Conexion.UserSession;
+import Hospital.Modelo.ModelPaciente;
 import Hospital.Modelo.ModelUsuario;
 //import javax.swing.JOptionPane;
 import java.sql.*;
@@ -49,6 +50,28 @@ public class CUsuarioDAO {
             e.printStackTrace(); // Usa un logger en un entorno real
         }
         return null; // Usuario no encontrado
+    }
+
+    public int obtenerIdPaciente(ModelUsuario usuario) {
+        int idPaciente = -1; // Valor predeterminado si no se encuentra
+        String sql = "SELECT Id_Paciente FROM Usuario WHERE Codigo_Usuario = ?";
+
+        // Crear una instancia de la conexión
+        CConexion objCon = new CConexion();
+
+        try (Connection conn = objCon.EstablecerConexion();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, usuario.getCodigo_Usuario());
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    idPaciente = rs.getInt("Id_Paciente");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener el ID del doctor: " + e.getMessage());
+        }
+        return idPaciente;
     }
 }
 

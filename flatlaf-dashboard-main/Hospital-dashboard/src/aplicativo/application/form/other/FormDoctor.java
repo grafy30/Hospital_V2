@@ -395,6 +395,7 @@ public class FormDoctor extends javax.swing.JPanel {
             txtCorreoDoctor,txtEspecialidadDoctor ,lblMostrarFoto,txtRuta,txtCodigoUsuarioLogin,txtContraseñaLogin);
         objdoc.MostrarTablaDoctor(JTablaMostrarDoctor);
         limpiarcampos();
+        btnAgregarDoctor.setEnabled(true);
     }//GEN-LAST:event_btnEditarDoctorActionPerformed
 
     private void btnEliminarDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDoctorActionPerformed
@@ -435,7 +436,7 @@ public class FormDoctor extends javax.swing.JPanel {
         CDoctorDAO objdoc=new CDoctorDAO();
         objdoc.Seleccionardoctor(JTablaMostrarDoctor, txtCodDoctor, txtNomDoctor, txtApellidosDoctor, txtDNIDoctor, jFechaNa,
             txtTelefonoDoctor,txtDireccionDoctor, txtCorreoDoctor, txtEspecialidadDoctor, lblMostrarFoto, txtCodigoUsuarioLogin,txtContraseñaLogin);
-
+        btnAgregarDoctor.setEnabled(false);
     }//GEN-LAST:event_JTablaMostrarDoctorMouseClicked
 
     private void btnBuscarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFotoActionPerformed

@@ -320,6 +320,7 @@ public class FormEnfermera extends javax.swing.JPanel {
         CEnfermeraDAO objenfer=new CEnfermeraDAO();
         objenfer.SeleccionarEnfermera(JTablaMostrarEnfermera, txtCodEnfermera, txtNomEnfermera, txtApellidosEnfermera, txtDNIEnfermera, jFechaNa,
             txtTelefonoEnfermera,txtDireccionEnfermera, txtCorreoEnfermera, lblMostrarFoto, txtCodigoUsuarioLogin,txtContraseñaLogin);
+        btnAgregarEnfermera.setEnabled(false);
     }//GEN-LAST:event_JTablaMostrarEnfermeraMouseClicked
 
     private void btnAgregarEnfermeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEnfermeraActionPerformed
@@ -385,6 +386,7 @@ public class FormEnfermera extends javax.swing.JPanel {
             txtCorreoEnfermera,lblMostrarFoto,txtRuta,txtCodigoUsuarioLogin,txtContraseñaLogin);
         objenfer.MostrarTablaenfermera(JTablaMostrarEnfermera);
         limpiarcampos();
+        btnAgregarEnfermera.setEnabled(true);
     }//GEN-LAST:event_btnEditarEnfermeraActionPerformed
 
     private void btnEliminarEnfermeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEnfermeraActionPerformed

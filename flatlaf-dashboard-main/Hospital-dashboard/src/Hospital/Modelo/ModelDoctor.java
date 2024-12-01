@@ -98,6 +98,11 @@ public class ModelDoctor {
     public void setFoto(byte[] Foto) {
         this.Foto = Foto;
     }
+    
+    @Override
+    public String toString() {
+        return Nombre + " " + Apellido; // Lo que aparecerá en el JComboBox
+    }
             
     //Cosntructor
     

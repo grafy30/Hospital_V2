@@ -17,16 +17,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import aplicativo.application.Application;
 import aplicativo.application.form.other.FormCitasMedicas;
-//import aplicativo.application.form.other.FormEstudiante;
-//import aplicativo.application.form.other.FormDashboard;
+import aplicativo.application.form.other.FormConsulasMedicas;
 import aplicativo.application.form.other.FormDoctor;
 import aplicativo.application.form.other.FormEnfermera;
 import aplicativo.application.form.other.FormPaciente;
-//import aplicativo.application.form.other.FormInbox;
 import aplicativo.application.form.other.FormPrincipal;
-//import aplicativo.application.form.other.FormProfesor;
-//import aplicativo.application.form.other.FormRead;
-//import aplicativo.application.form.other.FormUsuario;
+
 import aplicativo.menu.Menu;
 import aplicativo.menu.MenuAction;
 
@@ -77,9 +73,9 @@ public class MainForm extends JLayeredPane {
 
     private void initMenuEvent() {
         menu.addMenuEvent((int index, int subIndex, MenuAction action) -> {            
-            if (index == 0) {
+            if (index == 0) {  //Menu Principal
                 Application.showForm(new FormPrincipal());
-            } else if (index == 1) {
+            } else if (index == 1) {    //CRUD
                 if (subIndex == 1) {
                     Application.showForm(new FormDoctor());
                 } else if (subIndex == 2) {
@@ -88,8 +84,26 @@ public class MainForm extends JLayeredPane {
                     Application.showForm(new FormPaciente());
                 } else {
                         action.cancel();
-                    } 
-            }else if (index == 4) {
+                    }                 
+            }
+            
+             else if (index == 2) {     //Otros
+                if (subIndex == 1) {
+                    Application.showForm(new FormCitasMedicas());
+                } else {
+                        action.cancel();
+                    }                 
+            }
+
+             else if (index == 3) {     //Gestion
+                if (subIndex == 1) {
+                    Application.showForm(new FormDoctor());
+                } else {
+                        action.cancel();
+                    }                 
+            }
+             
+            else if (index == 4) {      //Enfermero Tareas
                     if (subIndex == 1) {
                         Application.showForm(new FormCitasMedicas());
                     } else if (subIndex == 2) {
@@ -100,6 +114,19 @@ public class MainForm extends JLayeredPane {
                         action.cancel();
                     } 
             }
+            
+            else if (index == 5) {      //Doctor Tareas
+                    if (subIndex == 1) {
+                        Application.showForm(new FormConsulasMedicas());
+                    } else if (subIndex == 2) {
+                        Application.showForm(new FormPaciente());
+                    } else if (subIndex == 3) {
+                        Application.showForm(new FormPaciente());
+                    } else {
+                        action.cancel();
+                    } 
+            }
+            
             else if (index == 9) {
                     Application.logout();
                     } else {

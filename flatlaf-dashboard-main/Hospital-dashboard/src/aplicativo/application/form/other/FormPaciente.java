@@ -321,6 +321,7 @@ public class FormPaciente extends javax.swing.JPanel {
         CPacienteDAO objenfer=new CPacienteDAO();
         objenfer.SeleccionarPaciente(JTablaMostrarPaciente, txtCodPaciente, txtNomPaciente, txtApellidosPaciente, txtDNIPaciente, jFechaNa,
             txtTelefonoPaciente,txtDireccionPaciente, txtCorreoPaciente, lblMostrarFoto, txtCodigoUsuarioLogin,txtContraseñaLogin);
+        btnAgregarPaciente.setEnabled(false);
     }//GEN-LAST:event_JTablaMostrarPacienteMouseClicked
 
     private void btnAgregarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPacienteActionPerformed
@@ -386,6 +387,7 @@ public class FormPaciente extends javax.swing.JPanel {
             txtCorreoPaciente,lblMostrarFoto,txtRuta,txtCodigoUsuarioLogin,txtContraseñaLogin);
         objenfer.MostrarTablaPaciente(JTablaMostrarPaciente);
         limpiarcampos();
+        btnAgregarPaciente.setEnabled(true);
     }//GEN-LAST:event_btnEditarPacienteActionPerformed
 
     private void btnEliminarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPacienteActionPerformed

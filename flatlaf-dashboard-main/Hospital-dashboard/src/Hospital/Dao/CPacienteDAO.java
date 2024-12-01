@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 
@@ -90,7 +92,7 @@ public class CPacienteDAO {
                    + "FROM Paciente p "
                    + "LEFT JOIN Usuario u ON p.Id_Paciente = u.Id_Paciente";
 
-        Object[] datos = new Object[14]; // Cambiado a tamaño 14
+        Object[] datos = new Object[11]; // Cambiado a tamaño 14
 
         try (Connection conn = objCon.EstablecerConexion();
              Statement st = conn.createStatement();
@@ -119,7 +121,7 @@ public class CPacienteDAO {
     public boolean InsertarPacienteYUsuario(ModelPaciente Paciente, ModelUsuario usuario) {
         CConexion objCon = new CConexion();
         String sqlPaciente = "INSERT INTO Paciente (Nombre, Apellido, Dni, Fecha_Nacimiento, Telefono, Direccion, Email, Foto)"
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         String sqlUsuario = "INSERT INTO Usuario (Codigo_Usuario, Contraseña, Id_Rol, Id_Paciente, Foto, FechaRegistro) "
                 + "VALUES (?, ?, ?, ?, ?, GETDATE())";
 
@@ -238,8 +240,7 @@ public class CPacienteDAO {
     }
 
     public void EliminarPaciente(JTextField txtCodUser,JTextField txtCodPacie) {
-        CConexion objc=new CConexion();
-        
+        CConexion objc=new CConexion();        
         String query= "DELETE FROM Usuario WHERE Usuario.Codigo_Usuario=?";       
         String query2= "DELETE FROM Paciente WHERE Paciente.Id_Paciente=?";
         System.out.println("Codigo Usuario: "+ txtCodUser.getText());
@@ -286,8 +287,6 @@ public class CPacienteDAO {
     public void MostrarTablaPacienteCITA(JTable tabla) {
         CConexion objCon = new CConexion();  
         DefaultTableModel modelo = new DefaultTableModel();
-
-        // Definir las columnas de la tabla
         modelo.addColumn("CodPaciente");
         modelo.addColumn("Nombres");
         modelo.addColumn("Apellidos");                           
@@ -317,5 +316,46 @@ public class CPacienteDAO {
             JOptionPane.showMessageDialog(null, "No se conectó correctamente, error: " + e.toString());
         } 
 }
+
+    public void BusquedaPorNombre(String nombre, JTable tabla) {
+//        String sql = "select l.id_libro,l.titulo,au.nombre,f.nombre,l.cantidad_copias,l.estado from Libros l inner join Facultades f on l.id_facultad=f.id_facultad inner join Autores au on l.id_autor=au.id_autor where l.titulo = '"+nombre+"'";
+        CConexion con = new CConexion();        
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("CodPaciente");
+        modelo.addColumn("Nombres");
+        modelo.addColumn("Apellidos");                           
+        modelo.addColumn("Foto"); 
+        tabla.setModel(modelo);
+        
+        String sql = "SELECT u.Codigo_Usuario, p.Nombre, p.Apellido, p.Foto " 
+                   + "FROM Paciente p " 
+                   + "LEFT JOIN Usuario u ON p.Id_Paciente = u.Id_Paciente "
+                   + "where p.Nombre = '"+nombre+"'";
+        
+        
+        String [] datos = new String[4];
+         
+        List<String[]> resultados = new ArrayList<>();
+        
+        try (Connection conn = con.EstablecerConexion();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)){
+            while (rs.next()) {
+                datos[0] =rs.getString(1);
+                datos[1] =rs.getString(2);
+                datos[2] =rs.getString(3);
+                datos[3] =rs.getString(4);
+                resultados.add(datos.clone());
+            } 
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR" + e.toString());                
+        }
+        // Realizar búsqueda secuencial en los resultados obtenidos
+        for (String[] paciente : resultados) {
+            if (paciente[1].toLowerCase().contains(nombre.toLowerCase())) {
+                modelo.addRow(paciente);
+            }       
+        }        
+    }
 
 }
